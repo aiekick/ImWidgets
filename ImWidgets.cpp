@@ -26,7 +26,21 @@
 #endif
 #include <imgui/imgui_internal.h>
 
+#ifndef STARTING_CUSTOMID
 #define STARTING_CUSTOMID 125
+#endif
+
+#ifndef FONT_ICON_RESET
+#define FONT_ICON_RESET "Reset"
+#endif
+
+#ifndef FONT_ICON_ADD
+#define FONT_ICON_ADD "+"
+#endif
+
+#ifndef FONT_ICON_REMVOE
+#define FONT_ICON_REMVOE "-"
+#endif
 
  /////////////////////////////////////
  /////////////////////////////////////
@@ -460,7 +474,7 @@ bool ImGui::CheckBoxBoolDefault(const char* vName, bool* vVar, bool vDefault, co
 
 	//float padding = ImGui::GetStyle().FramePadding.x;
 
-	change = ImGui::ContrastedButton(ICON_NDP_RESET, "Reset", vLabelFont);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET, "Reset", vLabelFont);
 	if (change)
 		*vVar = vDefault;
 
@@ -501,7 +515,7 @@ bool ImGui::CheckBoxIntDefault(const char* vName, int* vVar, int vDefault, const
 
 	//float padding = ImGui::GetStyle().FramePadding.x;
 
-	change = ImGui::ContrastedButton(ICON_NDP_RESET, "Reset", vLabelFont);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET, "Reset", vLabelFont);
 	if (change)
 		*vVar = vDefault;
 
@@ -540,7 +554,7 @@ bool ImGui::CheckBoxFloatDefault(const char* vName, float* vVar, float vDefault,
 {
 	bool change = false;
 
-	change = ImGui::ContrastedButton(ICON_NDP_RESET, "Reset", vLabelFont);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET, "Reset", vLabelFont);
 	if (change)
 		*vVar = vDefault;
 
@@ -563,7 +577,7 @@ bool ImGui::RadioFloatDefault(const char* vName, float* vVar, int vCount, float*
 
 	ImGui::BeginGroup();
 	{
-		change = ImGui::ContrastedButton(ICON_NDP_RESET, "Reset", vLabelFont);
+		change = ImGui::ContrastedButton(FONT_ICON_RESET, "Reset", vLabelFont);
 		if (change)
 			*vVar = *vDefault;
 
@@ -1040,7 +1054,7 @@ bool ImGui::ColorEdit3Default(float vWidth, const char* vName, float* vCol, floa
 	}
 
 	ImGui::PushID(ImGui::IncPUSHID());
-	change = ImGui::ContrastedButton(ICON_NDP_RESET);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET);
 	ImGui::PopID();
 	float w = vWidth - ImGui::GetItemRectSize().x - padding * 2.0f;
 	if (change)
@@ -1072,7 +1086,7 @@ bool ImGui::ColorEdit4Default(float vWidth, const char* vName, float* vCol, floa
 	}
 
 	ImGui::PushID(ImGui::IncPUSHID());
-	change = ImGui::ContrastedButton(ICON_NDP_RESET);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET);
 	ImGui::PopID();
 	float w = vWidth - ImGui::GetItemRectSize().x - padding * 2.0f;
 	if (change)
@@ -1344,7 +1358,7 @@ bool ImGui::Selectable_FramedText(const char* fmt, ...)
 
 void ImGui::PlotFVec4Histo(const char* vLabel, ct::fvec4* vDatas, int vDataCount, bool* vShowChannel, ImVec2 frame_size, ct::fvec4 scale_min, ct::fvec4 scale_max, int* vHoveredIdx)
 {
-	ImGuiWindow* window = ImGui::GetCurrentWindow();
+	/*ImGuiWindow* window = ImGui::GetCurrentWindow();
 	if (window->SkipItems)
 		return;
 
@@ -1527,7 +1541,7 @@ void ImGui::PlotFVec4Histo(const char* vLabel, ct::fvec4* vDatas, int vDataCount
 		}
 	}
 
-	ImGui::PopID();
+	ImGui::PopID();*/
 }
 
 void ImGui::ImageZoomPoint(ImTextureID vUserTextureId, const float vWidth, const ImVec2& vCenter, const ImVec2& vPoint, const ImVec2& vRadiusInPixels)
@@ -2313,7 +2327,7 @@ bool ImGui::SliderScalarDefaultCompact(float width, const char* label, ImGuiData
 	bool change = false;
 
 	ImGui::PushID(label);
-	if (ContrastedButton(ICON_NDP_RESET))
+	if (ContrastedButton(FONT_ICON_RESET))
 	{
 		switch (data_type)
 		{
@@ -2475,7 +2489,7 @@ bool ImGui::SliderScalarDefault(float width, const char* label, ImGuiDataType da
 	bool change = false;
 
 	ImGui::PushID(label);
-	if (ContrastedButton(ICON_NDP_RESET))
+	if (ContrastedButton(FONT_ICON_RESET))
 	{
 		switch (data_type)
 		{
@@ -2780,7 +2794,7 @@ bool ImGui::ContrastedComboVectorDefault(float vWidth, const char* label, int* c
 	{
 		ImGui::PushID(++CustomStyle::pushId);
 
-		change = ImGui::ContrastedButton(ICON_NDP_RESET);
+		change = ImGui::ContrastedButton(FONT_ICON_RESET);
 		if (change)
 			*current_item = vDefault;
 
@@ -2817,7 +2831,7 @@ IMGUI_API bool ImGui::InputFloatDefault(float vWidth, const char* vName, float* 
 
 	if (vShowResetButton)
 	{
-		change = ImGui::ContrastedButton(ICON_NDP_RESET);
+		change = ImGui::ContrastedButton(FONT_ICON_RESET);
 		w -= ImGui::GetItemRectSize().x;
 		if (change)
 			*vVar = vDefault;
@@ -2847,7 +2861,7 @@ bool ImGui::InputFloatDefaultStepper(float vWidth, const char* vName, float* vVa
 
 	if (vShowResetButton)
 	{
-		change = ImGui::ContrastedButton(ICON_NDP_RESET);
+		change = ImGui::ContrastedButton(FONT_ICON_RESET);
 		w -= ImGui::GetItemRectSize().x;
 		if (change)
 			*vVar = vDefault;
@@ -2865,12 +2879,12 @@ bool ImGui::InputFloatDefaultStepper(float vWidth, const char* vName, float* vVa
 	{
 		ImGui::SameLine(0, ImGui::GetStyle().ItemInnerSpacing.x);
 		ImGuiButtonFlags button_flags = ImGuiButtonFlags_Repeat | ImGuiButtonFlags_DontClosePopups;
-		if (ImGui::ContrastedButton(ICON_NDP_ADD, nullptr, nullptr, 0.0f, ImVec2(0.0f, 0.0f), button_flags))
+		if (ImGui::ContrastedButton(FONT_ICON_ADD, nullptr, nullptr, 0.0f, ImVec2(0.0f, 0.0f), button_flags))
 		{
 			*vVar += ImGui::GetIO().KeyCtrl ? vStepFast : vStep;
 		}
 		ImGui::SameLine(0, ImGui::GetStyle().ItemInnerSpacing.x);
-		if (ImGui::ContrastedButton(ICON_NDP_REMOVE, nullptr, nullptr, 0.0f, ImVec2(0.0f, 0.0f), button_flags))
+		if (ImGui::ContrastedButton(FONT_ICON_REMVOE, nullptr, nullptr, 0.0f, ImVec2(0.0f, 0.0f), button_flags))
 		{
 			*vVar -= ImGui::GetIO().KeyCtrl ? vStepFast : vStep;
 		}
@@ -2899,7 +2913,7 @@ IMGUI_API bool ImGui::InputIntDefault(float vWidth, const char* vName, int* vVar
 		vWidth -= ImGui::GetStyle().ScrollbarSize;
 	}
 
-	change = ImGui::ContrastedButton(ICON_NDP_RESET);
+	change = ImGui::ContrastedButton(FONT_ICON_RESET);
 	const float w = vWidth - ImGui::GetItemRectSize().x - padding * 2.0f - 24;
 	if (change)
 		*vVar = vDefault;

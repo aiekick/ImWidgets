@@ -18,13 +18,11 @@
  */
 #include "ThemeHelper.h"
 
-#include <Res/CustomFont.h>
-
-#include <Gui/ImWidgets.h>
-#include <Res/CustomFont.h>
-#include <ctools/cTools.h>
+#include "ImWidgets.h"
 #include <imgui/imgui.h>
-
+#ifndef IMGUI_DEFINE_MATH_OPERATORS
+#define IMGUI_DEFINE_MATH_OPERATORS
+#endif // IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui/imgui_internal.h>
 
 //// STATIC ///////////////////////////////////////////////////////////////////////////////////
@@ -276,8 +274,6 @@ void ThemeHelper::ApplyStyleColorsOrangeBlue()
 	// Safe Area Padding
 	prImGuiStyle.DisplaySafeAreaPadding = ImVec2(3.00f, 3.00f);
 
-	prFileTypeInfos[".dbc"] = IGFD::FileStyle(ImVec4(0.1f, 0.9f, 0.5f, 1.0f), ICON_NDP_FILE_TEXT);
-
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.0f, 0.353f, 0.0f, 1.0f);
 	ImGui::CustomStyle::BadColor = ImVec4(0.353f, 0.0f, 0.0f, 1.0f);
@@ -380,8 +376,6 @@ void ThemeHelper::ApplyStyleColorsGreenBlue()
 	prImGuiStyle.ColorButtonPosition = ImGuiDir_Right;
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
-
-	prFileTypeInfos[".dbc"].color = ImVec4(0.1f, 0.9f, 0.5f, 1.0f); // green high
 
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.8f, 0.2f, 1.0f);
@@ -486,8 +480,6 @@ void ThemeHelper::ApplyStyleColorsClassic()
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
 
-	prFileTypeInfos[".dbc"].color = ImVec4(0.1f, 0.9f, 0.5f, 1.0f); // green high
-
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.8f, 0.2f, 1.0f);
 	ImGui::CustomStyle::BadColor = ImVec4(0.8f, 0.2f, 0.2f, 1.0f);
@@ -591,8 +583,6 @@ void ThemeHelper::ApplyStyleColorsDark()
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
 
-	prFileTypeInfos[".dbc"].color = ImVec4(0.1f, 0.9f, 0.5f, 1.0f); // green high
-
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.8f, 0.2f, 1.0f);
 	ImGui::CustomStyle::BadColor = ImVec4(0.8f, 0.2f, 0.2f, 1.0f);
@@ -695,8 +685,6 @@ void ThemeHelper::ApplyStyleColorsLight()
 	prImGuiStyle.ColorButtonPosition = ImGuiDir_Right;
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
-
-	prFileTypeInfos[".dbc"].color = ImVec4(0.1f, 0.5f, 0.1f, 1.0f); // green low
 
 	// light theme so low color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.5f, 0.2f, 1.0f);
@@ -804,8 +792,6 @@ void ThemeHelper::ApplyStyleColorsDarcula()
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
 
-	prFileTypeInfos[".dbc"].color = ImVec4(0.1f, 0.9f, 0.5f, 1.0f); // green high
-
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.8f, 0.2f, 1.0f);
 	ImGui::CustomStyle::BadColor = ImVec4(0.8f, 0.2f, 0.2f, 1.0f);
@@ -908,8 +894,6 @@ void ThemeHelper::ApplyStyleColorsRedDark()
 	prImGuiStyle.ColorButtonPosition = ImGuiDir_Right;
 	prImGuiStyle.ButtonTextAlign = ImVec2(0.50f, 0.50f);
 	prImGuiStyle.SelectableTextAlign = ImVec2(0.00f, 0.50f);
-
-	prFileTypeInfos[".dbc"] = IGFD::FileStyle(ImVec4(0.1f, 0.5f, 0.1f, 1.0f), ICON_NDP_FILE_TEXT);
 
 	// dark theme so high color
 	ImGui::CustomStyle::GoodColor = ImVec4(0.2f, 0.8f, 0.2f, 1.0f);
